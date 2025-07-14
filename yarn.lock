@@ -672,17 +672,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nimbus-ds/styles@npm:^9.2.0":
-  version: 9.2.0
-  resolution: "@nimbus-ds/styles@npm:9.2.0"
-  checksum: 7239ab27558c56e305e7996619cfb7bdd6324ecd81689082299b25330bb36be20ecedcec2b7dddf778340271c89274d241187ab2b70da8c3667200efdfa6cdde
+"@nimbus-ds/styles@npm:^9.3.0":
+  version: 9.16.1
+  resolution: "@nimbus-ds/styles@npm:9.16.1"
+  checksum: fd32454c6a32f801dadefd2f2120d82534cd0b52eab4770c0c9d3902f5fc0dc3220a7e3e982d3599a834f4f33b7dfaa041ab463cbba255ee1ed9916f2994a22b
   languageName: node
   linkType: hard
 
-"@nimbus-ds/tokens@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "@nimbus-ds/tokens@npm:8.0.1"
-  checksum: beab78e571e1ab516610e07065c427b08097626eee4d3d2187fb7328d244b5c9b517afa38f8f06ffebd629fbc76c8e62121b388345026ef40926f686e0cf0bb1
+"@nimbus-ds/tokens@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "@nimbus-ds/tokens@npm:8.1.0"
+  checksum: e6cb0192640aeca58dd667290ab9e63308c9f8e4b3a2166d9ca7b400e20dbde19214da23cece0c288d175cbb916acdf28452127ab5b4dd7659522f0e52dadb6e
   languageName: node
   linkType: hard
 
@@ -892,12 +892,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tiendanube/nexo@npm:1.0.0-rc.6":
-  version: 1.0.0-rc.6
-  resolution: "@tiendanube/nexo@npm:1.0.0-rc.6"
+"@tiendanube/nexo@npm:1.0.0-rc.7":
+  version: 1.0.0-rc.7
+  resolution: "@tiendanube/nexo@npm:1.0.0-rc.7"
   dependencies:
     react: ^18.2.0
-  checksum: c09278ecd6328f39d5586a261eddd7f8505f175338f693be0be89569fe636650d891e27345a985fd99ee1734165d5f80699d45fb986a8571b8275b6e413843aa
+  checksum: 95c49fce5ed1307ea151c89b23c518e1a00b13b9581dff145909e798d9bd6c1b89403e72ff49f9e13b938eb06457d338489bcf839bd9991727ee27c78453c106
   languageName: node
   linkType: hard
 
@@ -3404,10 +3404,11 @@ __metadata:
   resolution: "frontend@workspace:frontend"
   dependencies:
     "@nimbus-ds/components": ^5.2.0
+    "@nimbus-ds/icons": ^1.2.0
     "@nimbus-ds/patterns": ^1.5.1
-    "@nimbus-ds/styles": ^9.2.0
-    "@nimbus-ds/tokens": ^8.0.1
-    "@tiendanube/nexo": 1.0.0-rc.6
+    "@nimbus-ds/styles": ^9.3.0
+    "@nimbus-ds/tokens": ^8.1.0
+    "@tiendanube/nexo": 1.0.0-rc.7
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
     "@typescript-eslint/eslint-plugin": ^6.0.0
