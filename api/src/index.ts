@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import passport from "passport";
 // @ts-ignore
 import dotenv from "dotenv";
 import path from "path";
@@ -15,7 +14,6 @@ import {
   beforeCheckClientMiddleware,
   errorHandlingMiddleware,
 } from "@middlewares";
-import "./utils/passaport-strategy";
 
 const port = process.env.PORT || 7200;
 const app = express();

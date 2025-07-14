@@ -1,30 +1,37 @@
 import { Router } from "express";
-import passport from "passport";
+import { loadCredentialsMiddleware } from "@middlewares";
 
 import { AuthenticationController } from "@features/auth";
 import { ProductController } from "@features/product";
 
 const routes = Router();
+
+// Log de todas las requests
+routes.use((req, res, next) => {
+  console.log("Request recibida:", req.method, req.url, req.headers.authorization);
+  next();
+});
+
 routes.get("/auth/install", AuthenticationController.install);
 routes.post(
   "/products",
-  passport.authenticate("jwt", { session: false }),
+  loadCredentialsMiddleware,
   ProductController.create
 );
 
 routes.get(
   "/products/total",
-  passport.authenticate("jwt", { session: false }),
+  loadCredentialsMiddleware,
   ProductController.getTotal
 );
 routes.get(
   "/products",
-  passport.authenticate("jwt", { session: false }),
+  loadCredentialsMiddleware,
   ProductController.getAll
 );
 routes.delete(
   "/products/:id",
-  passport.authenticate("jwt", { session: false }),
+  loadCredentialsMiddleware,
   ProductController.delete
 );
 

@@ -1,66 +1,122 @@
-# Nuvemshop App Integrated Template for Node.js
+# Tiendanube App Native Template Node
 
-![Licença](https://img.shields.io/badge/licença-MIT-blue)
+Este proyecto es una plantilla para crear una app nativa para Tiendanube, con backend en Node.js y frontend en React.
 
-Welcome to the Node.js and React app template repository for Nuvemshop. This repository provides a solid foundation for building integrated apps using Node.js and React, customized for seamless integration with the Nuvemshop platform.
+---
 
-## Developer resources
+## Requisitos previos
 
-Explore essential resources for developing Nuvemshop native apps using Node.js and React:
+- Node.js >= 16.x
+- Yarn >= 1.x o npm >= 7.x
+- (Opcional) XAMPP o similar si usas MySQL/localhost
 
-- [Introduction to Nuvemshop App Development](https://dev.nuvemshop.com.br/en/docs/applications/overview)
-- [Nuvemshop API Library Documentation](https://dev.nuvemshop.com.br/en/docs/developer-tools/nuvemshop-api)
-- [Nimbus Library Documentation](https://dev.nuvemshop.com.br/en/docs/developer-tools/nimbus)
-- [Nexo Library Documentation](https://dev.nuvemshop.com.br/en/docs/developer-tools/nexo)
+---
 
-## Template structure
+## 1. Clonar el repositorio
 
-The project is organized into two main directories: `api` and `frontend`.
-Inside the `api` directory, you will find your app's authentication as well as our [Nuvemshop API](https://dev.nuvemshop.com.br/en/docs/developer-tools/nuvemshop-api) and integration with our product API. This integration allows for product creation, deletion, and listing.
-Inside the `frontend` directory, you will find the visual layer of your app. In this space, integration with the API in the `api` directory occurs, allowing the visual part and backend logic to work together seamlessly.
-
-## Clone this repository
-
-```bash
-git clone --recurse-submodules https://github.com/TiendaNube/tiendanube-app-native-template-node.git
+```sh
+git clone <URL_DEL_REPO>
+cd tiendanube-app-native-template-node
 ```
 
-## Installing template dependencies
+---
 
-Installing the API dependencies:
+## 2. Configuración de variables de entorno
 
-```bash
-yarn setup:api
+### Backend (`api`)
+
+1. Copia el archivo de ejemplo:
+   ```sh
+   cd api
+   cp .env.example .env
+   ```
+2. Edita el archivo `.env` y completa los valores necesarios:
+   - `CLIENT_ID` (ID de tu app en Tiendanube)
+   - `CLIENT_SECRET` (secreto de tu app)
+   - `CLIENT_EMAIL` (email de tu cuenta de desarrollador)
+   - `TIENDANUBE_AUTENTICATION_URL` (URL de autenticación de Tiendanube)
+   - `TIENDANUBE_API_URL` (URL base de la API de Tiendanube)
+   - `PORT` (puerto del backend, por defecto 8000)
+
+### Frontend (`frontend`)
+
+1. Copia el archivo de ejemplo:
+   ```sh
+   cd ../frontend
+   cp .env.example .env
+   ```
+2. Edita el archivo `.env` y completa:
+   - `VITE_API_URL` (URL del backend, por ejemplo: `http://localhost:8000`)
+
+---
+
+## 3. Instalación de dependencias
+
+### Backend
+```sh
+cd api
+yarn install # o npm install
 ```
 
-Installing the App dependencies:
-
-```bash
-yarn setup:frontend
+### Frontend
+```sh
+cd ../frontend
+yarn install # o npm install
 ```
 
-## Running the API
+---
 
-Before proceeding with running the API, read the [README.md](https://github.com/TiendaNube/tiendanube-app-native-template-node/blob/main/api/README.md) in the api directory to understand more about the project's details and organization.
+## 4. Inicializar la base de datos local
 
-```bash
-yarn start:api
+El backend usa un archivo `db.json` para guardar las credenciales de la tienda. Puedes copiar el ejemplo:
+
+```sh
+cd api
+cp db.example.json db.json
 ```
 
-## Running the App
+Luego, cuando instales la app en una tienda, se guardará el `access_token` automáticamente.
 
-Before proceeding with running the app, read the [README.md](https://github.com/TiendaNube/tiendanube-app-native-template-react/blob/main/README.md) in the frontend directory to understand more about the project's details and organization.
+---
 
-```bash
-yarn start:frontend
+## 5. Levantar el backend
+
+Desde la carpeta `api`:
+```sh
+yarn start:api # o npm start, o npx ts-node src/index.ts
 ```
 
-By default the application will run on the port `http://localhost:5173` but this can be easily changed by passing the port parameter to the above command.
+---
 
-```bash
-yarn start:frontend --port 3000
+## 6. Levantar el frontend
+
+Desde la carpeta `frontend`:
+```sh
+yarn dev # o npm run dev
 ```
 
-## Licença
+---
 
-This repository is available as open-source under the terms of the MIT License. Be sure to review and comply with the license guidelines when using this code.
+## 7. Probar la app
+
+- Accede a `http://localhost:3000` (o el puerto que indique Vite) para ver el frontend.
+- El backend estará en `http://localhost:8000` (o el puerto que configuraste).
+- Instala la app en una tienda de prueba de Tiendanube para obtener el `access_token`.
+- Si quieres probar manualmente, puedes usar curl:
+  ```sh
+  curl -H "Authorization: Bearer TU_ACCESS_TOKEN" http://localhost:8000/products/total
+  ```
+
+---
+
+## 8. Notas importantes
+
+- El backend espera que el frontend envíe el `access_token` en el header `Authorization`.
+- Para producción, deberías implementar una base de datos real y reforzar la seguridad.
+- Si tienes problemas con CORS, revisa la configuración en `api/src/index.ts`.
+
+---
+
+## 9. Contacto y soporte
+
+Si tienes dudas, abre un issue o contacta al equipo de desarrollo.
